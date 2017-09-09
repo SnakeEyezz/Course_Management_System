@@ -15,9 +15,9 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-	<context:component-scan base-package="org.bookmanagement.controller" />
-	<context:component-scan base-package="org.bookmanagement.dao" />
-	<context:component-scan base-package="org.bookmanagement.service" />
+	<context:component-scan base-package="com.coursemanagement.controller" />
+	<context:component-scan base-package="com.coursemanagement.dao" />
+	<context:component-scan base-package="com.coursemanagement.service" />
 	<mvc:annotation-driven/>
 	
 
