@@ -28,7 +28,7 @@ public class BookDao {
 	@SuppressWarnings("unchecked")
 	public List<BookDTO> listBook() {
 		
-		return sessionFactory.getCurrentSession().createQuery("from Book").list();
+		return sessionFactory.getCurrentSession().createQuery("from BookDTO").list();
 	}
 
 	@SuppressWarnings("unchecked")
