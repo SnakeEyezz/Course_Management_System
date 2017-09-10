@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,10 @@ public class BookDTO {
 	private float price;
 	@Column(name ="QUANTITY")
 	private int quantity;
+	
+	@ManyToOne
+	@JoinColumn(name = "COURSE_ID")
+	CourseDTO course;
 	
 	public int getBookId() {
 		return bookId;
@@ -53,6 +59,12 @@ public class BookDTO {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	public CourseDTO getCourse() {
+		return course;
+	}
+	public void setCourse(CourseDTO course) {
+		this.course = course;
 	}
 
 }

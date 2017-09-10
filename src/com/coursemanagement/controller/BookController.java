@@ -19,7 +19,7 @@ public class BookController {
 	@Autowired 
 	private BookService bookService;
 	
-	@RequestMapping(value = "/books", method = RequestMethod.GET,
+	@RequestMapping(value = "/book", method = RequestMethod.GET,
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	public ArrayList<BookDTO> getBookList(){
 		
@@ -30,7 +30,7 @@ public class BookController {
 		return bookList;
 	}
 	
-	@RequestMapping(value = "/books/{id}", method = RequestMethod.GET, 
+	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET, 
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	public ArrayList<BookDTO> getBook(@PathVariable("id") int id){
 		
@@ -41,10 +41,11 @@ public class BookController {
 		return bookList;
 	}
 	
-	@RequestMapping(value = "/books", method = RequestMethod.POST)
-	public boolean addBook(@RequestBody BookDTO book){
+	@RequestMapping(value = "/book/{courseId}", method = RequestMethod.POST)
+	public boolean addBook(@RequestBody BookDTO book, 
+						   @PathVariable("courseId") int courseId){
 		
-		bookService.addBook(book);
+		bookService.addBook(courseId, book);
 		
 		return true;
 	}

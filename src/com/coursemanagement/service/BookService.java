@@ -16,9 +16,9 @@ public class BookService {
 	private BookDao bookDao;
 
 	@Transactional
-	public void addBook(BookDTO book) {
+	public void addBook(int courseId,BookDTO book) {
 		
-		bookDao.addBook(book);
+		bookDao.addBook(courseId, book);
 	}
 
 	@Transactional

@@ -14,9 +14,13 @@ public class BookDao {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	@Autowired
+	CourseDao courseDao;
 
-	public void addBook(BookDTO book) {
+	public void addBook(int courseId, BookDTO book) {
 		
+		book. setCourse(courseDao.getCourseById(courseId));
 		sessionFactory.getCurrentSession().save(book);
 	}
 
@@ -35,7 +39,7 @@ public class BookDao {
 	public BookDTO getBookById(int bookId) {
 		
 		Session session = sessionFactory.getCurrentSession();
-		List<BookDTO> list = session.createQuery("from Book b where b.id= :bookId")
+		List<BookDTO> list = session.createQuery("from BookDTO b where b.bookId= :bookId")
 								 .setParameter("bookId", bookId).list();
 		return  list.size()>0 ? (BookDTO)list.get(0): null;
 	}
