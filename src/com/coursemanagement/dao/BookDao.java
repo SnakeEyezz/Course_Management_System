@@ -20,11 +20,12 @@ public class BookDao {
 
 	public void addBook(int courseId, BookDTO book) {
 		
-		book. setCourse(courseDao.getCourseById(courseId));
+		book.setCourse(courseDao.getCourseById(courseId));
 		sessionFactory.getCurrentSession().save(book);
+		
 	}
 
-	public void updateBook(BookDTO book) {
+	public void updateBook(int bookId, BookDTO book) {
 		
 		sessionFactory.getCurrentSession().update(book);
 	}

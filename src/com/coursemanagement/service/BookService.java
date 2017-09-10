@@ -22,9 +22,16 @@ public class BookService {
 	}
 
 	@Transactional
-	public void updateBook(BookDTO book) {
+	public void updateBook(int bookId, BookDTO book) {
 		
-		bookDao.updateBook(book);
+		BookDTO book1 = bookDao.getBookById(bookId);
+		book1.setBookName(book.getBookName());
+		book1.setAuthor(book.getAuthor());
+		book1.setPrice(book.getPrice());
+		book1.setQuantity(book.getQuantity());
+		book1.setCourse(book.getCourse());
+		
+		bookDao.updateBook(bookId, book1);
 	}
 
 	@Transactional

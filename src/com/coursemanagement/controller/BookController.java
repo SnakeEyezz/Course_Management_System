@@ -50,18 +50,18 @@ public class BookController {
 		return true;
 	}
 	
-	@RequestMapping(value = "/books/{id}", method= RequestMethod.PUT)
-	public boolean updateBook(@PathVariable("id") int id, @RequestBody BookDTO book){
+	@RequestMapping(value = "/book/{bookId}", method= RequestMethod.PUT)
+	public boolean updateBook(@PathVariable("id") int bookId, @RequestBody BookDTO book){
 		
-		bookService.updateBook(book);
+		bookService.updateBook(bookId, book);
 		
 		return true;
 	}
 	
-	@RequestMapping(value = "/books/{id}", method= RequestMethod.DELETE)
-	public boolean removeBook(@PathVariable("id") int id){
+	@RequestMapping(value = "/book/{bookId}", method= RequestMethod.DELETE)
+	public boolean removeBook(@PathVariable("bookId") int bookId){
 		
-		bookService.removeBook(id);
+		bookService.removeBook(bookId);
 		
 		return true;
 	}

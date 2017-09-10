@@ -34,5 +34,10 @@ public class CourseDao {
 								 .setParameter("courseId", courseId).list();
 		return  list.size()>0 ? (CourseDTO)list.get(0): null;
 	}
+	
+	public void updateCourse(CourseDTO course) {
+		
+		sessionFactory.getCurrentSession().update(course);
+	}
 
 }
